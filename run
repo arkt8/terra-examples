@@ -1,0 +1,38 @@
+#!/bin/bash
+
+export ROOTDIR="$(dirname $(realpath $0))"
+export LUABIN=lua5.1
+
+export LUA_PATH="${ROOTDIR}/src/?.lua;${ROOTDIR}/src/?/init.lua;$($LUABIN -e "print(package.path)")"
+export LUA_CPATH="${ROOTDIR}/out/?.so;$($LUABIN -e "print(package.cpath)")"
+export TERRA_PATH="${ROOTDIR}/src/?.t;$(terra -e "print(package.terrapath)")"
+export TERRA_INCL="terralib.includepath='${ROOTDIR}/clang'"
+
+export CMD="$1"
+export TGT="$2"
+
+mkdir -p "${ROOTDIR}/out"
+
+
+
+cd $ROOTDIR
+
+list() {
+    cd src
+    echo "LUA "
+    echo "==================="
+    find . -name '*.lua' | sed 's#^\./##; s#.[^.]\+$##; s#/#.#g'
+    echo
+    echo "TERRA "
+    echo "==================="
+    find . -name '*.t'   | sed 's#^\./##; s#.[^.]\+$##; s#/#.#g'
+}
+
+
+
+case $CMD in
+    clean) rm -rf "${ROOTDIR}/out/*" ;;
+    lua)   ${LUABIN} -e 'require "'${TGT}'"' ;;
+    terra) terra -e "${TERRA_INCL}; "'require "'${TGT}'"' ;;
+    *)   list
+esac
