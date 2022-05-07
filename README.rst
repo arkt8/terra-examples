@@ -31,9 +31,9 @@ Note that doing this ``$HOME/.local/bin`` should be specified
 on the environment PATH variable, that can be easily set
 adding the following in your bashrc or zshrc:
 
-```
+``
 export PATH="${HOME}/.local/bin:"$PATH
-```
+``
 
 
 Example Index
