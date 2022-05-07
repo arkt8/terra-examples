@@ -31,7 +31,7 @@ list() {
 
 
 case $CMD in
-    clean)    rm -rf "${ROOTDIR}/out/*" ;;
+    clean)    /bin/rm -rf "${ROOTDIR}/out/"* ;;
     lua)      ${LUABIN} -e 'require "'${TGT}'"' ;;
     terra)    terra -e "${TERRA_INCL}; "'require "'${TGT}'"' ;;
     terradbg) terra -v -g -e "${TERRA_INCL}; "'require "'${TGT}'"' ;;

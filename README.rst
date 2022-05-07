@@ -34,8 +34,14 @@ PATH set in your bashrc, zshrc, fishrc...
 Example Index
 -------------
 
+Run `./run` bash script without arguments to have
+a list of examples separated by interpreter. Then run
 
-* Creating a Lua module using Terra
-  - `./run terra module.base`    to compile
-  - `./run lua test.module.base` to test
+* `./run terra name`
 
+or
+
+* `./run lua name`
+
+All generated binaries will be put inside the `./out`
+directory. For convencience, `./run clean` will wipe them.
