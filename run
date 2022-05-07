@@ -31,8 +31,9 @@ list() {
 
 
 case $CMD in
-    clean) rm -rf "${ROOTDIR}/out/*" ;;
-    lua)   ${LUABIN} -e 'require "'${TGT}'"' ;;
-    terra) terra -e "${TERRA_INCL}; "'require "'${TGT}'"' ;;
+    clean)    rm -rf "${ROOTDIR}/out/*" ;;
+    lua)      ${LUABIN} -e 'require "'${TGT}'"' ;;
+    terra)    terra -e "${TERRA_INCL}; "'require "'${TGT}'"' ;;
+    terradbg) terra -v -g -e "${TERRA_INCL}; "'require "'${TGT}'"' ;;
     *)   list
 esac
