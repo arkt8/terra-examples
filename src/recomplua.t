@@ -18,7 +18,7 @@ terra main_terra_lua (argc : int, argv: &rawstring) : int
 end
 
 terralib.saveobj(
-    os.getenv("ROOTDIR")..'/out/tluaexe',
+    os.getenv("ROOTDIR")..'/out/recomplua',
     'executable',
     { main = main_terra_lua },
     { "-L./lib" -- Extra path for include linked library
