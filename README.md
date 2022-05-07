@@ -1,7 +1,8 @@
 Terra Examples
 ==============
 
-Some examples using Terra/Lua language.
+Some examples using [Terra](https://terralang.org)/[Lua](https://lua.org)
+language.
 
 If you don't find some example on _Index_ below and have an Idea or
 want to help with examples, feel free to create an issue or make a
@@ -38,7 +39,8 @@ Requisites
 ----------
 
 * Lua5.1 installed (for modules test)
-* Terra installed
+* [Terra](https://terralang.org) (>= 1.0.0-beta4) installed
+
 
 Usually to avoid mess with system I uncompress terra package
 download from the site and unpack into  ``$HOME/.local/lib/terra``
